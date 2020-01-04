@@ -99,7 +99,7 @@ def loc_post():
 			answer = ["Side a is: ", round(a,2),
 				  "Angle B is: ", round(B,2),
 				  "Angle C is: ", round (C,2)]
-			return render_template('time.html', result=answer)
+			return render_template('loc.html', result=answer)
 
 		elif str(triangle_type) == "SSS":
 			a = float(input("Please enter side a: "))
@@ -112,7 +112,7 @@ def loc_post():
 			answer = ["Angle A is: ":round(A,2),
 				  "Angle B is: ": round(B,2),
 				  "Angle C is: ": round(C,2)]
-			return render_template('time.html', result=answer)
+			return render_template('loc.html', result=answer)
 		else:
 		    print("Sorry, we don't recognize that. Try using capital letters. If this does not work, then your triangle must be solved by other means
 
