@@ -83,15 +83,15 @@ def time_post():
 @app.route('/LOC', methods['GET', 'POST'])
 def loc_post():
 	#This program solves triangles using the law of cosines
-	import math
+#	import math
 	if request.method == 'GET':
 		return render_template('loc.html')
 	elif request.method == 'POST':
 		triangle_type = request.form['Do you have an SSS or SAS triangle?'])
 		if str(triangle_type) == "SAS":
-			A = float(input("Please enter angle A in degrees: "))
-			b = float(input("Please enter side b: "))
-			c = float(input("Please enter side c: "))
+			A = float(request.form["Please enter angle A in degrees: "])
+			b = float(request.form["Please enter side b: "])
+			c = float(request.form["Please enter side c: "])
 
 			a = math.sqrt(b**2+c**2-2*b*c*math.cos(math.radians(A)))
 			B = math.degrees(math.acos((b**2-a**2-c**2)/(-2*a*c)))
