@@ -8,11 +8,13 @@ import os
 
 app = Flask(__name__)
 
-
+# If user goes to home page
 @app.route('/', methods=['GET'])
 def home_page():
 	return render_template('index.html')
 
+
+# If name is provided in URL
 @app.route('/<name>')
 def profile(name):
 	return render_template('index.html', name=name)
