@@ -78,8 +78,46 @@ def time_post():
               
               
             return render_template('time.html', result=answer)
+	
 
-         
+@app.route('/LOC', methods['GET', 'POST'])
+def loc_post():
+	#This program solves triangles using the law of cosines
+	import math
+	if request.method == 'GET':
+		return render_template('loc.html')
+	elif request.method == 'POST':
+		triangle_type = request.form['Do you have an SSS or SAS triangle?'])
+		if str(triangle_type) == "SAS":
+			A = float(input("Please enter angle A in degrees: "))
+			b = float(input("Please enter side b: "))
+			c = float(input("Please enter side c: "))
+
+			a = math.sqrt(b**2+c**2-2*b*c*math.cos(math.radians(A)))
+			B = math.degrees(math.acos((b**2-a**2-c**2)/(-2*a*c)))
+			C = 180 - A - B
+			answer = ["Side a is: ", round(a,2),
+				  "Angle B is: ", round(B,2),
+				  "Angle C is: ", round (C,2)]
+			return render_template('time.html', result=answer)
+
+		elif str(triangle_type) == "SSS":
+			a = float(input("Please enter side a: "))
+			b = float(input("Please enter side b: "))
+			c = float(input("Please enter side c: "))
+
+			A = math.degrees(math.acos((a**2-b**2-c**2)/(-2*b*c)))
+			B = math.degrees(math.acos((b**2-a**2-c**2)/(-2*a*c)))
+			C = 180 - A - B
+			answer = ["Angle A is: ":round(A,2),
+				  "Angle B is: ": round(B,2),
+				  "Angle C is: ": round(C,2)]
+			return render_template('time.html', result=answer)
+		else:
+		    print("Sorry, we don't recognize that. Try using capital letters. If this does not work, then your triangle must be solved by other means
+
+
+
 
 @app.route('/python_apps')
 def python_apps_page():
